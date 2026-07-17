@@ -1,9 +1,18 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 
 
 
-export default App
+export const App = () => {
+    const [articles, setArticles] = useState([]);
+
+    retun(
+        <>
+            <ul>
+                {articles.map(article => (
+                    <li key={article}>{article}</li>
+                ))}
+            </ul>
+        </>
+    )
+};
