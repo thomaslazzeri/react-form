@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import { Articles } from './components/Articles';
+import { NewArticle } from './components/NewArticle';
 
 export const App = () => {
     const [articles, setArticles] = useState([]);
@@ -7,23 +9,11 @@ export const App = () => {
 
     return (
         <>
-            <ul>
-                {articles.map(article => (
-                    <li key={article}>{article}</li>
-                ))}
-            </ul>
-            <form onSubmit={e => {
-                e.preventDefault();
-                setArticles(articles => articles.concat(inputValue));
-                setInputValue('');
-            }}>
-                <input type="text" 
-                placeholder='Titolo articolo' 
-                value={inputValue} 
-                onChange={e => setInputValue(e.target.value)}/>
-               
-                <button type="submit">Aggiungi</button>
-            </form>
+            <Articles articles={articles} />
+            <NewArticle
+                setArticles={setArticles}
+                inputValue={inputValue}
+                setInputValue={setInputValue} />
         </>
     );
 };
