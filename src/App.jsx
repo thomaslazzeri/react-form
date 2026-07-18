@@ -5,15 +5,11 @@ import { NewArticle } from './components/NewArticle';
 
 export const App = () => {
     const [articles, setArticles] = useState([]);
-    const [inputValue, setInputValue] = useState('');
 
     return (
         <>
             <Articles articles={articles} />
-            <NewArticle
-                setArticles={setArticles}
-                inputValue={inputValue}
-                setInputValue={setInputValue} />
+            <NewArticle setArticles={setArticles} />
         </>
     );
 };
