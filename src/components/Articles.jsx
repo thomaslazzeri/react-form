@@ -5,4 +5,3 @@ export const Articles = props => (
         ))}
     </ul>
 );
-
