@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const ExtensionBlog = () => {
+export const ExtensionBlog = props => {
     const [formData, setFormData] = useState({
         author: '',
         title: '',
@@ -9,45 +9,60 @@ export const ExtensionBlog = () => {
     });
 
     const handleFormChange = e => {
-        setFormData(formData => ({
+        props.setFormData(formData => ({
             ...formData,
             [e.target.name]: e.target.value
         }));
-    }
+    };
 
     return (
-        < form >
-            <div className="container">
+        <div className="container">
+            <form>
                 <div>
                     <input className="form-control"
                         name="author"
-                        placeholder="autore"
+                        placeholder="Autore"
                         type="text"
-                    />
+                        value={formData.author}
+                        onChange={handleFormChange} />
+
                 </div>
-                <div
-                >
+                <div>
                     <input className="form-control"
                         name="title"
-                        placeholder="titolo"
+                        placeholder="Titolo"
                         type="text"
-                    />
+                        value={formData.title}
+                        onChange={handleFormChange} />
+
                 </div>
                 <div>
                     <input className="form-control"
                         name="body"
-                        placeholder="corpo"
+                        placeholder="Corpo"
                         type="text"
-                    />
+                        value={formData.body}
+                        onChange={handleFormChange} />
+
                 </div>
                 <div>
                     <input className="form-control"
                         name="public"
-                        placeholder="pubblico"
+                        placeholder="Pubblico"
                         type="text"
-                    />
+                        value={formData.public}
+                        onChange={handleFormChange} />
+
                 </div>
+            </form>
+
+            <div className="card">
+               <p>{author}</p> 
+                <p>{title}</p>
+                <p>{body}</p>
+                
             </div>
-        </form >
+
+        </div>
     );
 };
