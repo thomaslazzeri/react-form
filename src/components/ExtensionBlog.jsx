@@ -57,9 +57,7 @@ export const ExtensionBlog = props => {
             </form>
 
             <div className="card">
-               <p>{author}</p> 
-                <p>{title}</p>
-                <p>{body}</p>
+               
                 
             </div>
 
