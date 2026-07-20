@@ -9,15 +9,18 @@ export const ExtensionBlog = props => {
     });
 
     const handleFormChange = e => {
-        props.setFormData(formData => ({
+        const value = e.target.type === "checbox" ? e.target.checked : e.target.value;
+        setFormData(formData => ({
             ...formData,
-            [e.target.name]: e.target.value
+            [e.target.name]: value
         }));
     };
 
     return (
         <div className="container">
-            <form>
+            <form onSubmit={e => {
+                
+            }}>
                 <div>
                     <input
                         className="form-control"
@@ -49,22 +52,15 @@ export const ExtensionBlog = props => {
                     />
                 </div>
                 <div>
-                    <input
+                    <input type="checkbox"
                         className="form-control"
                         name="public"
                         placeholder="Pubblico"
-                        type="text"
                         value={formData.public}
                         onChange={handleFormChange}
                     />
                 </div>
             </form>
-
-            <div className="card">
-
-
-            </div>
-
         </div>
     );
 };
