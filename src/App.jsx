@@ -10,8 +10,8 @@ export const App = () => {
     return (
         <>
             <Articles articles={articles} setArticles={setArticles} />
-            <NewArticle setArticles={setArticles} />
-            <ExtensionBlog />
+{/*             <NewArticle setArticles={setArticles} />
+ */}            <ExtensionBlog articles={articles} setArticles={setArticles}/>
         </>
     );
 };

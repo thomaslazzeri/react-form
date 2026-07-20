@@ -12,9 +12,9 @@ export const Articles = props => {
     return (
         <>
             <ul>
-                {props.articles.map(article => (
-                    <li key={article}>
-                        {article}
+                {props.articles.map((article, index) => (
+                    <li key={index}>
+                        {article.author},{article.title}
                         <button
                             onClick={() => deleteArticle(article)}
                         >
