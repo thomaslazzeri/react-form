@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const ExtensionBlog = props => {
+export const ExtensionBlog = () => {
     const [formData, setFormData] = useState({
         author: '',
         title: '',
@@ -19,8 +19,12 @@ export const ExtensionBlog = props => {
     return (
         <div className="container">
             <form onSubmit={e => {
-                
+                e.preventDefault();
+                setFormData(formData);
+                setFormData('');
             }}>
+
+
                 <div>
                     <input
                         className="form-control"
@@ -28,8 +32,9 @@ export const ExtensionBlog = props => {
                         placeholder="Autore"
                         type="text"
                         value={formData.author}
-                        onChange={handleFormChange}
+                        onChange={e => handleFormChange(e.target.name)}
                     />
+                    <button type="submit">Aggiungi</button>
                 </div>
                 <div>
                     <input
@@ -38,8 +43,9 @@ export const ExtensionBlog = props => {
                         placeholder="Titolo"
                         type="text"
                         value={formData.title}
-                        onChange={handleFormChange}
+                        onChange={e => handleFormChange(e.target.name)}
                     />
+                    <button type="submit">Aggiungi</button>
                 </div>
                 <div>
                     <input
@@ -48,8 +54,9 @@ export const ExtensionBlog = props => {
                         placeholder="Corpo"
                         type="text"
                         value={formData.body}
-                        onChange={handleFormChange}
+                        onChange={e => handleFormChange(e.target.name)}
                     />
+                    <button type="submit">Aggiungi</button>
                 </div>
                 <div>
                     <input type="checkbox"
@@ -57,7 +64,7 @@ export const ExtensionBlog = props => {
                         name="public"
                         placeholder="Pubblico"
                         value={formData.public}
-                        onChange={handleFormChange}
+                        onChange={e => handleFormChange(e.target.name)}
                     />
                 </div>
             </form>
