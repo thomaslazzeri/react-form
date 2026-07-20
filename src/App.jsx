@@ -11,7 +11,7 @@ export const App = () => {
         <>
             <Articles articles={articles} setArticles={setArticles} />
             <NewArticle setArticles={setArticles} />
-            <ExtensionBlog ExtensionBlog />
+            <ExtensionBlog />
         </>
     );
 };

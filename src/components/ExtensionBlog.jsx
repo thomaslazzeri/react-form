@@ -5,7 +5,7 @@ export const ExtensionBlog = props => {
         author: '',
         title: '',
         body: '',
-        public: ''
+        public: true
     });
 
     const handleFormChange = e => {
@@ -19,46 +19,50 @@ export const ExtensionBlog = props => {
         <div className="container">
             <form>
                 <div>
-                    <input className="form-control"
+                    <input
+                        className="form-control"
                         name="author"
                         placeholder="Autore"
                         type="text"
                         value={formData.author}
-                        onChange={handleFormChange} />
-
+                        onChange={handleFormChange}
+                    />
                 </div>
                 <div>
-                    <input className="form-control"
+                    <input
+                        className="form-control"
                         name="title"
                         placeholder="Titolo"
                         type="text"
                         value={formData.title}
-                        onChange={handleFormChange} />
-
+                        onChange={handleFormChange}
+                    />
                 </div>
                 <div>
-                    <input className="form-control"
+                    <input
+                        className="form-control"
                         name="body"
                         placeholder="Corpo"
                         type="text"
                         value={formData.body}
-                        onChange={handleFormChange} />
-
+                        onChange={handleFormChange}
+                    />
                 </div>
                 <div>
-                    <input className="form-control"
+                    <input
+                        className="form-control"
                         name="public"
                         placeholder="Pubblico"
                         type="text"
                         value={formData.public}
-                        onChange={handleFormChange} />
-
+                        onChange={handleFormChange}
+                    />
                 </div>
             </form>
 
             <div className="card">
-               
-                
+
+
             </div>
 
         </div>
