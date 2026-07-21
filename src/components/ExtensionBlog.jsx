@@ -8,6 +8,8 @@ export const ExtensionBlog = props => {
         public: true
     });
 
+    const [lastArticle, setLastArticle] = useState(null);
+
     const handleFormChange = e => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
         setFormData(formData => ({
@@ -20,7 +22,7 @@ export const ExtensionBlog = props => {
         <div className="container">
             <form onSubmit={e => {
                 e.preventDefault();
-                props.setArticles([...props.articles, formData]);
+                setLastArticle({ ...formData });
                 setFormData({
                     author: '',
                     title: '',
@@ -59,16 +61,27 @@ export const ExtensionBlog = props => {
                     />
                 </div>
                 <div>
-                    <input type="checkbox"
-                        className="form-control"
+                    <input
+                        type="checkbox"
+                        className="form-check-input"
                         name="public"
-                        placeholder="Pubblico"
-                        value={formData.public}
+                        checked={formData.public}
                         onChange={handleFormChange}
                     />
                 </div>
                 <button type="submit">Aggiungi</button>
             </form>
+
+            <div className="article-preview">
+                {lastArticle && (
+                    <div className="article-card">
+                        <h3>{lastArticle.title}</h3>
+                        <p><strong>Autore:</strong> {lastArticle.author}</p>
+                        <p>{lastArticle.body}</p>
+                    </div>
+                )}
+            </div>
+
         </div>
     );
 };
